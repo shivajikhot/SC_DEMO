@@ -1,7 +1,7 @@
 # IAM Policy for Launch Role
 resource "aws_iam_policy" "ec2_servicecatalog_policy" {
   name        = var.policy_name
-  description = "Policy to allow Service Catalog to create EC2 instances, access S3 artifacts, and manage resource groups"
+  description = "Policy to allow Service Catalog to create EC2 instances, access S3 artifacts, and manage resources"
   policy      = <<POLICY
 {
     "Version": "2012-10-17",
@@ -19,7 +19,8 @@ resource "aws_iam_policy" "ec2_servicecatalog_policy" {
                 "ec2:AuthorizeSecurityGroupEgress",
                 "ec2:AssociateIamInstanceProfile",
                 "iam:PassRole",
-                "ec2:CreateTags"
+                "ec2:CreateTags",
+                "ec2:DeleteTags"   # 🔹 Allow deleting tags if needed
             ],
             "Resource": "*"
         },
@@ -53,22 +54,20 @@ resource "aws_iam_policy" "ec2_servicecatalog_policy" {
                 "resource-groups:CreateGroup",
                 "resource-groups:ListGroupResources",
                 "resource-groups:DeleteGroup",
-                "resource-groups:Tag"
+                "resource-groups:Tag",
+                "resource-groups:Untag"  # 🔹 Allow untagging resources
             ],
             "Resource": "*"
         },
         {
-            "Sid": "AllowListingResourcesForServiceCatalog",
+            "Sid": "AllowTaggingPermissions",
             "Effect": "Allow",
             "Action": [
                 "tag:GetResources",
                 "tag:GetTagKeys",
                 "tag:GetTagValues",
-                "servicecatalog:ListRecordHistory",
-                "servicecatalog:ListProvisionedProductPlans",
-                "servicecatalog:ListPortfoliosForProduct",
-                "servicecatalog:ListLaunchPaths",
-                "servicecatalog:DescribeRecord"
+                "tag:TagResources",
+                "tag:UntagResources"
             ],
             "Resource": "*"
         }
