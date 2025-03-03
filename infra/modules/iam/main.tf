@@ -23,6 +23,19 @@ resource "aws_iam_policy" "ec2_servicecatalog_policy" {
             "Resource": "*"
         },
         {
+            "Sid": "AllowS3AccessForServiceCatalogProvisioning",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "s3:ExistingObjectTag/servicecatalog:provisioning": "true"
+                }
+            }
+        },
+        {
             "Effect": "Allow",
             "Action": [
                 "s3:GetObject",
