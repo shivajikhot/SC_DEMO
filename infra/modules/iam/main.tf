@@ -45,7 +45,7 @@ resource "aws_iam_role" "servicecatalog_launch_role" {
         {
             "Effect": "Allow",
             "Principal": {
-                "AWS": "arn:aws:iam::575108922676:root"
+                "AWS": "arn:aws:iam::686255946921:root"
             },
             "Action": "sts:AssumeRole",
             "Condition": {
