@@ -19,7 +19,7 @@ resource "aws_iam_policy" "ec2_servicecatalog_policy" {
                 "ec2:AuthorizeSecurityGroupEgress",
                 "ec2:AssociateIamInstanceProfile",
                 "iam:PassRole",
-                ""ec2:CreateTags""
+                "ec2:CreateTags"
             ],
             "Resource": "*"
         },
