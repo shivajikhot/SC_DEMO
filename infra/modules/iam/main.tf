@@ -20,7 +20,7 @@ resource "aws_iam_policy" "ec2_servicecatalog_policy" {
                 "ec2:AssociateIamInstanceProfile",
                 "iam:PassRole",
                 "ec2:CreateTags",
-                "ec2:DeleteTags"   # 🔹 Allow deleting tags if needed
+                "ec2:DeleteTags"
             ],
             "Resource": "*"
         },
@@ -55,7 +55,7 @@ resource "aws_iam_policy" "ec2_servicecatalog_policy" {
                 "resource-groups:ListGroupResources",
                 "resource-groups:DeleteGroup",
                 "resource-groups:Tag",
-                "resource-groups:Untag"  # 🔹 Allow untagging resources
+                "resource-groups:Untag"
             ],
             "Resource": "*"
         },
