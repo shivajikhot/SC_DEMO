@@ -14,6 +14,7 @@ module "iam" {
 
 module "service_catalog" {
   source                = "../../modules/service_catalog"
+  depends_on = [module.iam_group, module.iam]
   portfolio_name        = "EC2 Portfolio"
   portfolio_description = "Portfolio for Terraform configurations"
   provider_name         = "IT (it@example.com)"
