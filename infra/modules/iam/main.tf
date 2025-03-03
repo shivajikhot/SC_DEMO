@@ -104,4 +104,8 @@ POLICY
 resource "aws_iam_role_policy_attachment" "attach_policy" {
   role       = aws_iam_role.servicecatalog_launch_role.name
   policy_arn = aws_iam_policy.ec2_servicecatalog_policy.arn
+  depends_on = [
+    aws_iam_role.servicecatalog_launch_role,
+    aws_iam_policy.ec2_servicecatalog_policy
+  ]
 }
