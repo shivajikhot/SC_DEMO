@@ -42,3 +42,7 @@ variable "launch_role_arn" {
   description = "IAM Role ARN for Service Catalog Launch Constraint"
   type        = string
 }
+
+variable "iam_group_arn" {
+  type = string
+}
