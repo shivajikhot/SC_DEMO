@@ -40,4 +40,5 @@ resource "aws_servicecatalog_constraint" "launch_constraint" {
   parameters = jsonencode({
     "RoleArn" = var.launch_role_arn
   })
+ depends_on = [var.launch_role_arn]
 }
