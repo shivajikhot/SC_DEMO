@@ -44,6 +44,17 @@ resource "aws_iam_policy" "ec2_servicecatalog_policy" {
             "Resource": [
                 "arn:aws:s3:::*"
             ]
+        },
+        {
+            "Sid": "AllowResourceGroupCreation",
+            "Effect": "Allow",
+            "Action": [
+                "resource-groups:CreateGroup",
+                "resource-groups:ListGroupResources",
+                "resource-groups:DeleteGroup",
+                "resource-groups:Tag"
+            ],
+            "Resource": "*"
         }
     ]
 }
