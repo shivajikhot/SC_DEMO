@@ -8,21 +8,7 @@ resource "aws_iam_policy" "ec2_servicecatalog_policy" {
     "Statement": [
         {
             "Effect": "Allow",
-            "Action": [
-                "ec2:RunInstances",
-                "ec2:TerminateInstances",
-                "ec2:DescribeInstances",
-                "ec2:DescribeInstanceTypes",
-                "ec2:DescribeSubnets",
-                "ec2:DescribeVpcs",
-                "ec2:CreateSecurityGroup",
-                "ec2:AuthorizeSecurityGroupIngress",
-                "ec2:AuthorizeSecurityGroupEgress",
-                "ec2:AssociateIamInstanceProfile",
-                "iam:PassRole",
-                "ec2:CreateTags",
-                "ec2:DeleteTags"
-            ],
+            "Action": "ec2:*",
             "Resource": "*"
         },
         {
