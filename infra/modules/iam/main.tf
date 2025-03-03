@@ -12,6 +12,7 @@ resource "aws_iam_policy" "ec2_servicecatalog_policy" {
                 "ec2:RunInstances",
                 "ec2:TerminateInstances",
                 "ec2:DescribeInstances",
+                 "ec2:DescribeInstanceTypes"
                 "ec2:DescribeSubnets",
                 "ec2:DescribeVpcs",
                 "ec2:CreateSecurityGroup",
