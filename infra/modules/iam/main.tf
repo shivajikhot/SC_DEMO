@@ -1,7 +1,7 @@
 # IAM Policy for Launch Role
 resource "aws_iam_policy" "ec2_servicecatalog_policy" {
   name        = var.policy_name
-  description = "Policy to allow Service Catalog to create EC2 instances"
+  description = "Policy to allow Service Catalog to create EC2 instances and access S3 artifacts"
   policy      = <<POLICY
 {
     "Version": "2012-10-17",
@@ -21,11 +21,23 @@ resource "aws_iam_policy" "ec2_servicecatalog_policy" {
                 "iam:PassRole"
             ],
             "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::*"
+            ]
         }
     ]
 }
 POLICY
 }
+
+
 
 #  IAM Role for Launch Constraint
 resource "aws_iam_role" "servicecatalog_launch_role" {
