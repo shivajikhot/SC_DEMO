@@ -81,7 +81,7 @@ POLICY
 
 #  IAM Role for Launch Constraint
 resource "aws_iam_role" "servicecatalog_launch_role" {
-  name               = "var.role_name"
+  name               = var.role_name
   assume_role_policy = <<POLICY
 {
     "Version": "2012-10-17",
