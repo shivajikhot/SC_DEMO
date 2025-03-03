@@ -27,7 +27,12 @@ variable "product_description" {
   description = "Description of the Service Catalog product"
   type        = string
 }
-
+variable "support_url" {
+  type        = string
+}
+variable "support_email" {
+  type        = string
+}
 variable "artifact_version" {
   description = "Version of the provisioning artifact"
   type        = string
