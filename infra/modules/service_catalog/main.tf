@@ -26,6 +26,12 @@ resource "aws_servicecatalog_product_portfolio_association" "product_association
   product_id   = aws_servicecatalog_product.product.id
 }
 
+resource "aws_servicecatalog_principal_portfolio_association" "portfolio_access_group" {
+  portfolio_id   = aws_servicecatalog_portfolio.portfolio.id
+  principal_arn  = var.iam_group_arn
+  principal_type = "IAM"
+}
+
 resource "aws_servicecatalog_constraint" "launch_constraint" {
   portfolio_id = aws_servicecatalog_portfolio.portfolio.id
   product_id   = aws_servicecatalog_product.product.id
