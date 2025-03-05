@@ -3,5 +3,5 @@ output "portfolio_id" {
 }
 
 output "product_id" {
-  value = aws_servicecatalog_product.product.id
+  value = aws_servicecatalog_product.product[each.key]
 }
