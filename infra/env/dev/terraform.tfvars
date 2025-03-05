@@ -1,5 +1,5 @@
 products = {
-  "product1" = {
+  "EC2" = {
     name             = "EC2"
     owner            = "Devops"
     description      = "Terraform product containing an Amazon EC2."
@@ -8,7 +8,7 @@ products = {
     artifact_version = "v1.0"
     template_url     = "https://terraform-backend-statefi.s3.us-west-1.amazonaws.com/service-catalog_ec2.tar.gz"
   }
-  "product2" = {
+  "VPC" = {
     name             = "VPC"
     owner            = "Devops"
     description      = "Terraform product containing an Amazon VPC."
