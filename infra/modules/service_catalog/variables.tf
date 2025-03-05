@@ -13,35 +13,6 @@ variable "provider_name" {
   type        = string
 }
 
-variable "product_name" {
-  description = "Service Catalog Product Name"
-  type        = string
-}
-
-variable "product_owner" {
-  description = "Owner of the Service Catalog product"
-  type        = string
-}
-
-variable "product_description" {
-  description = "Description of the Service Catalog product"
-  type        = string
-}
-variable "support_url" {
-  type        = string
-}
-variable "support_email" {
-  type        = string
-}
-variable "artifact_version" {
-  description = "Version of the provisioning artifact"
-  type        = string
-}
-
-variable "template_url" {
-  description = "S3 URL for Terraform artifact"
-  type        = string
-}
 
 variable "launch_role_arn" {
   description = "IAM Role ARN for Service Catalog Launch Constraint"
@@ -50,4 +21,17 @@ variable "launch_role_arn" {
 
 variable "iam_group_arn" {
   type = string
+}
+
+variable "products" {
+  description = "List of products"
+  type = map(object({
+    name             = string
+    owner            = string
+    description      = string
+    support_email    = string
+    support_url      = string
+    artifact_version = string
+    template_url     = string
+  }))
 }
