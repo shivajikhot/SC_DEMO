@@ -1,5 +1,11 @@
 provider "aws" {
   region = "us-west-1"
+  default_tags {
+    tags = {
+      Environment = "Test"
+      Name        = "SERVICE_CATALOG_COMPONENTS"
+    }
+  }
 }
 
 module "iam_group" {
