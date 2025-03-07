@@ -1,7 +1,12 @@
 provider "aws" {
   region = "us-west-1"
+  default_tags {
+    tags = {
+      Environment = "Dest"
+      Name        = "SERVICE_CATALOG_COMPONENTS"
+    }
+  }
 }
-
 module "iam_group" {
   source = "../../modules/iam_group"
 }
