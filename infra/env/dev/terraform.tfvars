@@ -18,3 +18,9 @@ products = {
     template_url     = "https://terraform-backend-statefi.s3.us-west-1.amazonaws.com/VPC.tar.gz"
   }
 }
+
+
+tag_options = {
+  environment = { key = "Environment", value = "Dev" }
+  department  = { key = "Department", value = "DevOps" }
+}
