@@ -10,3 +10,12 @@ variable "products" {
     template_url     = string
   }))
 }
+
+
+variable "tag_options" {
+  description = "Tag options for Service Catalog"
+  type = map(object({
+    key   = string
+    value = string
+  }))
+}
