@@ -2,7 +2,7 @@ provider "aws" {
   region = "us-west-1"
   default_tags {
     tags = {
-      Environment = "Dest"
+      Environment = "Dev"
       Name        = "SERVICE_CATALOG_COMPONENTS"
     }
   }
@@ -24,6 +24,7 @@ module "service_catalog" {
   portfolio_description = "Portfolio for Terraform configurations"
   provider_name         = "IT (it@example.com)"
   products              = var.products
+  tag_options           = var.tag_options
   launch_role_arn       = module.iam.iam_role_arn
   iam_group_arn         = module.iam_group.iam_group_arn
 }
