@@ -47,4 +47,15 @@ resource "aws_servicecatalog_constraint" "launch_constraint" {
     "RoleArn" = var.launch_role_arn
   })
 }
-
+# Create Tag Options dynamically using for_each
+resource "aws_servicecatalog_tag_option" "tag_options" {
+  for_each = var.tag_options
+  key   = each.value
+  value = each.key
+}
+# Associate each tag option with the portfolio
+resource "aws_servicecatalog_tag_option_resource_association" "tag_option_associations" {
+  for_each = aws_servicecatalog_tag_option.tag_options
+  resource_id   = aws_servicecatalog_portfolio.portfolio.id
+  tag_option_id = each.value.id
+}
