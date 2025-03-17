@@ -50,8 +50,8 @@ resource "aws_servicecatalog_constraint" "launch_constraint" {
 # Create Tag Options dynamically using for_each
 resource "aws_servicecatalog_tag_option" "tag_options" {
   for_each = var.tag_options
-  key   = each.value
-  value = each.key
+  key   = each.value.key
+  value = each.value.value
 }
 # Associate each tag option with the portfolio
 resource "aws_servicecatalog_tag_option_resource_association" "tag_option_associations" {
